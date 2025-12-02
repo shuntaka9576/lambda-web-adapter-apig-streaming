@@ -1,0 +1,4 @@
+packages:
+  - "server"
+  - "iac"
+minimumReleaseAge: 30240
