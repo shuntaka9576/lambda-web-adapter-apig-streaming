@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { CfnOutput, Duration, Fn, Stack, type StackProps } from 'aws-cdk-lib';
 import {
-  CfnMethod,
+  type CfnMethod,
   EndpointType,
   LambdaIntegration,
   RestApi,
@@ -43,10 +43,7 @@ export class WebAppStack extends Stack {
         'Properties.Integration.ResponseTransferMode',
         'STREAM'
       );
-      cfnMethod.addOverride(
-        'Properties.Integration.TimeoutInMillis',
-        900000
-      );
+      cfnMethod.addOverride('Properties.Integration.TimeoutInMillis', 900000);
       cfnMethod.addOverride(
         'Properties.Integration.Uri',
         Fn.sub(
